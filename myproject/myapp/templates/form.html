@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if user_form.instance.id %}Редактировать пользователя{% else %}Создать нового пользователя{% endif %}</title>
+</head>
+<body>
+    <h1>{% if user_form.instance.id %}Редактировать пользователя{% else %}Создать нового пользователя{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'list' %}">Назад к списку</a>
+</body>
+</html>
